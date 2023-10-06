@@ -6,7 +6,7 @@ use redox_ecc::instances::{
     P521, SECP256K1,
 };
 use redox_ecc::ops::FromFactory;
-use redox_ecc::weierstrass::{Curve, SSWU, SSWUAB0, SVDW};
+use redox_ecc::weierstrass::{Curve, SSWU, SSWUAB0, SVDW, SwiftEC};
 
 use crate::api::{
     Encoding, ExpID, GetHashToCurve, HashID, HashToCurve, HashToField, MapID, Suite, XofID,
@@ -53,6 +53,7 @@ lazy_static! {
     pub static ref SUITES_WEIERSTRASS: HashMap<String, Suite<WeCurveID>> = register_in_map!([
         P256_XMDSHA256_SSWU_NU_,
         P256_XMDSHA256_SSWU_RO_,
+        P256_XMDSHA256_SWIFTEC_RO_,
         P256_XMDSHAKE128_SSWU_NU_,
         P256_XMDSHAKE128_SSWU_RO_,
         P256_XMDSHA256_SVDW_NU_,
@@ -90,6 +91,17 @@ pub static P256_XMDSHA256_SSWU_RO_: Suite<WeCurveID> = Suite {
     ro: true,
     ..P256_XMDSHA256_SSWU_NU_
 };
+
+pub static P256_XMDSHA256_SWIFTEC_RO_: Suite<WeCurveID> = Suite {
+    name: "P256_XMD:SHA-256_SWIFTEC_RO_",
+    curve: P256,
+    k: 128,
+    exp: ExpID::XMD(HashID::SHA256),
+    map: MapID::SwiftEC(),
+    l: 48,
+    ro: true,
+};
+pub static P256_XMDSHA256_SSWU_RO_: Suite<WeCurveID> = Suite {
 
 pub static P256_XMDSHAKE128_SSWU_NU_: Suite<WeCurveID> = Suite {
     name: "P256_XMD:SHAKE128_SSWU_NU_",

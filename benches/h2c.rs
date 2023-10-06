@@ -3,6 +3,7 @@ use criterion::{criterion_group, criterion_main, Criterion};
 use h2c_rust_ref::{
     GetHashToCurve, P256_XMDSHA256_SSWU_NU_, P256_XMDSHA256_SSWU_RO_, P384_XMDSHA384_SSWU_NU_,
     P384_XMDSHA384_SSWU_RO_, P521_XMDSHA512_SSWU_NU_, P521_XMDSHA512_SSWU_RO_,
+    P256_XMDSHA256_SWIFTEC_RO_,
 };
 
 fn h2c(c: &mut Criterion) {
@@ -14,6 +15,7 @@ fn h2c(c: &mut Criterion) {
 
     for suite in [
         P256_XMDSHA256_SSWU_RO_,
+        P256_XMDSHA256_SWIFTEC_RO_,
         P384_XMDSHA384_SSWU_RO_,
         P521_XMDSHA512_SSWU_RO_,
         P256_XMDSHA256_SSWU_NU_,
