@@ -34,6 +34,7 @@ impl GetHashToCurve for Suite<WeCurveID> {
             }
             MapID::SSWU(z) => Box::new(SSWU::new(curve.clone(), f.from(z))),
             MapID::SVDW(z) => Box::new(SVDW::new(curve.clone(), f.from(z))),
+            MapID::SwiftEC() => Box::new(SwiftEC::new(curve.clone())),
             _ => unimplemented!(),
         };
         let exp = get_expander(self.exp, dst, self.k);
@@ -101,7 +102,6 @@ pub static P256_XMDSHA256_SWIFTEC_RO_: Suite<WeCurveID> = Suite {
     l: 48,
     ro: true,
 };
-pub static P256_XMDSHA256_SSWU_RO_: Suite<WeCurveID> = Suite {
 
 pub static P256_XMDSHAKE128_SSWU_NU_: Suite<WeCurveID> = Suite {
     name: "P256_XMD:SHAKE128_SSWU_NU_",
