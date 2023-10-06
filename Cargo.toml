@@ -20,7 +20,7 @@ lazy_static = "1.4.0"
 num-bigint = "0.4.3"
 sha2 = "0.10.2"
 sha3 = "0.10.1"
-redox-ecc = { git = "https://github.com/armfazh/redox-ecc", version = "0.2.3" }
+redox-ecc = { git = "https://github.com/rbkhmrcr/redox-ecc", version = "0.2.3" }
 
 [dev-dependencies]
 criterion = "0.3.5"
