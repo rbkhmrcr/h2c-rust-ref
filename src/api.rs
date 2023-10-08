@@ -78,6 +78,7 @@ pub enum MapID {
     SSWUAB0(i32),
     SVDW(i32),
     ELL2(i32),
+    SwiftEC(),
 }
 
 #[derive(Copy, Clone)]
